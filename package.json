@@ -1,0 +1,20 @@
+{
+  "name": "blog-gridsome",
+  "private": true,
+  "scripts": {
+    "dev": "gridsome develop",
+    "explore": "gridsome explore",
+    "build": "gridsome build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@gridsome/source-filesystem": "^0.6.2",
+    "@gridsome/source-strapi": "^0.2.0",
+    "@gridsome/transformer-remark": "^0.6.4",
+    "bootstrap": "^5.0.1",
+    "gh-pages": "^3.2.0",
+    "gridsome": "^0.7.0"
+  }
+}
