@@ -19,5 +19,4 @@ module.exports = {
     }
   ],
   siteUrl: 'https://yolilufei.github.io',
-  pathPrefix: '/yolilufei'
 }
