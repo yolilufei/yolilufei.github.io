@@ -3,9 +3,11 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
+const merge = require('merge');
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'blog',
+  siteUrl: 'https://yolilufei.github.io',
   plugins: [
     {
       use: '@gridsome/source-filesystem',
@@ -18,5 +20,11 @@ module.exports = {
       }
     }
   ],
-  siteUrl: 'https://yolilufei.github.io',
+  configWebpack(config) {
+    merge(config, {
+      output: {
+        path: require.resolve(__dirname, 'docs')
+      }
+    })
+  }
 }
