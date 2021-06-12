@@ -5,7 +5,8 @@
     "dev": "gridsome develop",
     "explore": "gridsome explore",
     "build": "gridsome build",
-    "deploy": "npm run build"
+    "deploy": "npm run build",
+    "postdeploy": "mv dist/ docs/"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
