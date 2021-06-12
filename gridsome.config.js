@@ -3,7 +3,8 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-const merge = require('merge');
+const merge = require('webpack-merge');
+const path = require('path');
 
 module.exports = {
   siteName: 'blog',
@@ -21,10 +22,12 @@ module.exports = {
     }
   ],
   configWebpack(config) {
-    merge(config, {
+    // config.output.path = path.resolve(__dirname, 'docs');
+    // console.log(config);
+    return merge({
       output: {
-        path: require.resolve(__dirname, 'docs')
+        path: path.resolve(__dirname, 'docs')
       }
-    })
+    }, config)
   }
 }
