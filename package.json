@@ -4,9 +4,7 @@
   "scripts": {
     "dev": "gridsome develop",
     "explore": "gridsome explore",
-    "build": "gridsome build",
-    "deploy": "npm run build",
-    "postdeploy": "mv dist/ docs/"
+    "build": "gridsome build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
@@ -14,7 +12,8 @@
     "@gridsome/source-strapi": "^0.2.0",
     "@gridsome/transformer-remark": "^0.6.4",
     "bootstrap": "^5.0.1",
-    "gridsome": "^0.7.0"
+    "gridsome": "^0.7.0",
+    "markdown-it": "^12.0.6"
   },
   "devDependencies": {
     "webpack-merge": "^4.2.2"

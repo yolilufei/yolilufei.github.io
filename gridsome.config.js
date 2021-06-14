@@ -19,15 +19,29 @@ module.exports = {
           // remark options
         }
       }
+    },
+    {
+      use: '@gridsome/source-strapi',
+      options: {
+        apiURL: 'http://106.75.222.146:1337',
+        queryLimit: 1000, // Defaults to 100
+        contentTypes: ['Posts'],
+        // singleTypes: ['impressum'],
+        // Possibility to login with a Strapi user,
+        // when content types are not publicly available (optional).
+        loginData: {
+          // identifier: 'guoshi@163.com',
+          // password: 'Shizhongyu007*'
+        }
+      }
     }
   ],
-  configWebpack(config) {
-    // config.output.path = path.resolve(__dirname, 'docs');
-    // console.log(config);
-    return merge({
-      output: {
-        path: path.resolve(__dirname, 'docs')
+  templates: {
+    StrapiPosts: [
+      {
+        path: '/post/:id',
+        component: './src/templates/Post.vue'
       }
-    }, config)
+    ]
   }
 }
