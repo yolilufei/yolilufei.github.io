@@ -128,19 +128,13 @@
     <article class="blog-post-block blog-post-page-content">
         <section>
             
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <h3 id="parctise"><a href="#parctise" class="headerlink" title="parctise"></a>parctise</h3><ol>
+<li><p>将当前目录下所有的 jpg 格式文件移动到 &#x2F;data&#x2F;images 下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls *.jpg | xargs -n1 -I &#123;&#125; mv &#123;&#125; /data/images</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>统计一个源代码目录中所有 tsx 文件的行数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /source -type f -name &#x27;*.tsx&#x27; | xargs -n1 -I &#123;&#125; wc -l</span><br></pre></td></tr></table></figure></li>
+</ol>
 
             
         </section>
@@ -168,41 +162,28 @@
     <article class="blog-post-block blog-post-page-content">
             <div class="row">
             
-                <div class="col-md-4 col-sm-4 post-page-more-btn">
-                    <span  data-toggle="modal" data-target="#post-donate-content">
-                        <span id="post-donate-btn" class="btn btn-danger btn-block" data-toggle="tooltip" data-placement="top" title="如果您觉得本文还不错或者对您有帮助，可以考虑打赏一下作者哦">打赏本文</span>
-                    </span>
-                </div>
-                <div class="col-md-4 col-sm-4 post-page-more-btn">
-                    <span  data-toggle="modal" data-target="#post-qrcode-content">
-                        <span><span id="post-qrcode-btn" class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="微信扫描二维码手机端查看本文及分享本文">二维码</span></span>
-                    </span>
-                </div>
             </div>
-        <div class="post-more-function-br"></div>
+       
 
         <div class="modal fade" id="post-donate-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">打赏本文</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
                     </div>
                     <div class="modal-body">
                         <div class="row post-donate-content">
                             <div class="col-md-4">
                                 <p>支付宝</p>
-                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png"/>
+                                <img class="post-donate-content-img no-lightbox" src=""/>
                             </div>
                             <div class="col-md-4">
                                 <p>微信</p>
-                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png"/>
+                                <img class="post-donate-content-img no-lightbox" src=""/>
                             </div>
                             <div class="col-md-4">
                                 <p>财付通</p>
-                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png"/>
+                                <img class="post-donate-content-img no-lightbox" src=""/>
                             </div>
                         </div>
                     </div>
@@ -218,9 +199,6 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">文章二维码</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
                     </div>
                     <div class="modal-body">
                         <div class="row post-qrcode-content">
