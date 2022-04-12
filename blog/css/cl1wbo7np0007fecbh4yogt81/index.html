@@ -141,12 +141,12 @@
 </thead>
 <tbody><tr>
 <td align="left">:first-child</td>
-<td align="left">选中当前容器下当前元素第一个直接子节点</td>
-<td align="left">css1</td>
+<td align="left">匹配在一组兄弟元素中的第一个元素</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://drafts.csswg.org/selectors-4/#first-child-pseudo">Selectors Level 4 :first-child</a></td>
 </tr>
 <tr>
 <td align="left">:last-child</td>
-<td align="left">父元素的最后一个子元素</td>
+<td align="left">匹配在一组兄弟元素中的最后一个元素</td>
 <td align="left">css1</td>
 </tr>
 <tr>
@@ -158,6 +158,11 @@
 <td align="left">:nth-child(an+b)</td>
 <td align="left">addad</td>
 <td align="left">css1</td>
+</tr>
+<tr>
+<td align="left">:first-of-type</td>
+<td align="left">表示一组兄弟元素中其类型的第一个元素</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://drafts.csswg.org/selectors-4/#first-of-type-pseudo">Selectors Level 4 :first-of-type</a></td>
 </tr>
 <tr>
 <td align="left">:active</td>
@@ -173,6 +178,36 @@
 <td align="left">:checked</td>
 <td align="left">匹配任意选中状态下radio、checkbox、select下的option元素</td>
 <td align="left"><a target="_blank" rel="noopener" href="https://drafts.csswg.org/selectors-4/#checked">Selectors Level 4</a></td>
+</tr>
+<tr>
+<td align="left">:default</td>
+<td align="left">表示一组相关元素中的默认表单元素</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://drafts.csswg.org/selectors-4/#default-pseudo">Selectors Level 4 :default</a></td>
+</tr>
+<tr>
+<td align="left">:defined</td>
+<td align="left">表示任何已定义的元素,包括任何浏览器内置的标准元素以及已成功定义的自定义元素</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://html.spec.whatwg.org/multipage/semantics-other.html#selector-defined">HTML Living Standard :defined</a></td>
+</tr>
+<tr>
+<td align="left">:disabled</td>
+<td align="left">表示任何被禁用的元素</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://html.spec.whatwg.org/multipage/#selector-disabled">HTML Living Standard :disabled</a></td>
+</tr>
+<tr>
+<td align="left">:empty</td>
+<td align="left">代表没有子元素的元素。子元素只可以是元素节点或文本（包括空格）。注释或处理指令都不会产生影响</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://drafts.csswg.org/selectors-4/#empty-pseudo">Selectors Level 4 :empty</a></td>
+</tr>
+<tr>
+<td align="left">:enabled</td>
+<td align="left">表示任何被启用的（enabled）元素</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://html.spec.whatwg.org/multipage/#selector-enabled">HTML Living Standard :enabled</a></td>
+</tr>
+<tr>
+<td align="left">:first</td>
+<td align="left">@page CSS 伪类选择器 表示打印文档的时候，第一页的样式</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://drafts.csswg.org/css-page-3/#left-right-first">CSS Paged Media Module Level 3 :first</a></td>
 </tr>
 </tbody></table>
 <h3 id="active"><a href="#active" class="headerlink" title=":active"></a><a target="_blank" rel="noopener" href="https://html.spec.whatwg.org/multipage/semantics-other.html#selector-active">:active</a></h3><p>描述：:active 伪类匹配被用户激活的元素，一般就是指鼠标按下时对应的元素，通常用在 <code>&lt;a&gt;&lt;/a&gt;</code> 和 <code>&lt;button&gt;&lt;/button&gt;</code> 元素中。</p>
@@ -201,10 +236,12 @@
     	
     	
 		
+			<a href="/blog/uncategorized/cl1wbo7nc0000fecb476ya5ef/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="">上一篇</a>
+		
 
 		
 		
-			<a href="/blog/Linux/cl1wan74h0000azcbemf7bwfz" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="linux 指令—xargs">下一篇</a>
+			<a href="/blog/Linux/cl1wbo7nk0002fecbb4dsbzg2/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="linux 指令—xargs">下一篇</a>
 		
 
         <div style="clear: both;"></div>
@@ -287,7 +324,7 @@
                 return out;
             }
             // 生成
-            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("https://guoshi.com/blog/css/cl1wan74m0001azcbe2zcccfh")}).hide();
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("https://guoshi.com/blog/css/cl1wbo7np0007fecbh4yogt81/")}).hide();
             var canvas=qrcode.find('canvas').get(0);
             $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
         </script>
@@ -313,7 +350,7 @@
             </div>
             <div class="blog-sidebar-count blog-sidebar-padding">
                 <div class="blog-sidebar-count-left">
-                    <p class="blog-sidebar-count-p">2</p>
+                    <p class="blog-sidebar-count-p">3</p>
                     <span class="blog-sidebar-count-span">文章</span>
                 </div>
                 <div class="blog-sidebar-count-right">
