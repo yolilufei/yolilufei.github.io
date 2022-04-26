@@ -146,7 +146,7 @@
         </tr>
         <tr>
             <td rowspan="20" style="vertical-align: middle;">compilerOptions</td>
-            <td rowspan="6">类型检查(Type Checking)</td>
+            <td rowspan="10">类型检查(Type Checking)</td>
             <td>allowUnreachableCode</td>
             <td>boolean | undefined</td>
             <td>undefined</td>
@@ -182,6 +182,18 @@
             <td>true</td>
             <td>是否禁止属性类型是隐式any。true: 禁止; false: 忽略;</td>
         </tr>
+        <tr>
+            <td>noImplicitOverride</td>
+            <td>boolean</td>
+            <td>true</td>
+            <td>禁止不明确的重写。true: 禁止; false: 忽略;</td>
+        </tr>
+        <tr>
+            <td>noImplicitReturns</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>禁止代码块有不明确的返回值。true: 禁止; false: 忽略;</td>
+        </tr>
     </tbody>
 </table>
 
@@ -193,7 +205,7 @@
 <li>true: 忽略不可执行的代码</li>
 <li>false: 抛出编译错误</li>
 </ul>
-<p><strong>举个栗子：</strong></p>
+<p><strong>栗子：</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">hasUnreachableCode</span> = (<span class="params">a: number</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (a &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="string">&#x27;error&#x27;</span>;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;error&#x27;</span>, a); <span class="comment">// 永远不会执行的代码</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> a++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 永远不会执行的代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>其他</strong></p>
@@ -206,7 +218,7 @@
 <li>true: 忽略没有用的标记语句</li>
 <li>false: 抛出编译错误</li>
 </ul>
-<p>标记语句现在很少使用了，因此这个类型设置大家估计都不是很熟悉，我们举个栗子：熟悉下</p>
+<p>标记语句现在很少使用了，因此这个类型设置大家估计都不是很熟悉，我们栗子：熟悉下</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="attr">loop1</span>: <span class="comment">// loop1 这个标记语句是有用的，在 for 循环里用到了</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">if</span> (i === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">continue</span> loop1;</span><br><span class="line">  &#125;</span><br><span class="line">  str = str + i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str); <span class="comment">// 0234</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>下面这个是没有用到的标记语句</strong></p>
@@ -215,7 +227,7 @@
 <p><strong>其他</strong></p>
 <p>eslint 同样支持设置规则<code>&#39;no-unused-labels&#39;: &quot;error&quot;</code>来避免程序中存在不可执行的代码。</p>
 <h2 id="exactOptionalPropertyTypes"><a href="#exactOptionalPropertyTypes" class="headerlink" title="exactOptionalPropertyTypes"></a>exactOptionalPropertyTypes</h2><p><strong>属性解释</strong><br>在 <strong>type</strong> 或者 <strong>interface</strong> 中定义可选属性时(也就是 ?: 定义的属性)，当 <strong>exactOptionalPropertyTypes</strong> 为 <strong>true</strong> 时，可选属性不能赋值为 undefined。为 <strong>false</strong>时，则允许赋值为 undefined。</p>
-<p><strong>举个栗子</strong></p>
+<p><strong>栗子</strong></p>
 <ul>
 <li><p>exactOptionalPropertyTypes: true</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">interface <span class="title class_">UserDefaults</span> &#123;</span><br><span class="line">    color?: <span class="string">&#x27;light&#x27;</span> | <span class="string">&#x27;dark&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">user</span>: <span class="title class_">UserDefaults</span> = &#123;</span><br><span class="line">    <span class="attr">color</span>: <span class="literal">undefined</span> <span class="comment">// Type &#x27;undefined&#x27; is not assignable to type &#x27;&quot;light&quot; | &quot;dark&quot;&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -228,7 +240,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">interface <span class="title class_">UserDefaults</span> &#123;</span><br><span class="line">    color?: <span class="string">&#x27;light&#x27;</span> | <span class="string">&#x27;dark&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">user</span>: <span class="title class_">UserDefaults</span> = &#123;</span><br><span class="line">    <span class="comment">// 没有定义 color 也是 ok 的</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="noFallthroughCasesInSwitch"><a href="#noFallthroughCasesInSwitch" class="headerlink" title="noFallthroughCasesInSwitch"></a>noFallthroughCasesInSwitch</h2><p><strong>属性解释</strong><br>不允许 switch 表达式中存在 <code>fallthrough</code> case，即如果某个 case 内不存在 <code>break</code> 或 <code>return</code> 关键字，会抛出错误。<br>注意：只有当该 <code>case</code> 中存在代码逻辑但是无 <code>break</code>或<code>return</code> 时才会抛出错误。如果 <code>case</code> 内无逻辑代码则不会抛出错误。</p>
-<p><strong>举个栗子</strong></p>
+<p><strong>栗子</strong></p>
 <ul>
 <li><p>noFallthroughCasesInSwitch: true <strong>抛出错误</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">demo</span> = (<span class="params">type: number</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">switch</span>(type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>: <span class="comment">// error：Fallthrough case in switch.(7029)</span></span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;it is 0&#x27;</span>);</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;it is 1&#x27;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -240,7 +252,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">demo</span> = (<span class="params">type: number</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">switch</span>(type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>: <span class="comment">// ignore</span></span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;it is 0&#x27;</span>);</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;it is 1&#x27;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="noImplicitAny"><a href="#noImplicitAny" class="headerlink" title="noImplicitAny"></a>noImplicitAny</h2><p><strong>属性解释</strong><br>typescript 会提供一个兜底类型 <code>any</code> 给那些<strong>没有声明类型且无法推断出类型的属性</strong>，<code>noImplicitAny</code> 的作用就是提供一个开关给用户决定是否禁止提供隐式any类型给上述类型。</p>
-<p><strong>举个栗子</strong></p>
+<p><strong>栗子</strong></p>
 <ul>
 <li><p>noImplicitAny: true <strong>抛出错误</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">s</span>) &#123;</span><br><span class="line"><span class="comment">//Parameter &#x27;s&#x27; implicitly has an &#x27;any&#x27; type.</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(s.<span class="title function_">subtr</span>(<span class="number">3</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -249,7 +261,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">s</span>) &#123;</span><br><span class="line"><span class="comment">//will ignore</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(s.<span class="title function_">subtr</span>(<span class="number">3</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="noImplicitOverride（禁止不明确的重写）"><a href="#noImplicitOverride（禁止不明确的重写）" class="headerlink" title="noImplicitOverride（禁止不明确的重写）"></a>noImplicitOverride（禁止不明确的重写）</h2><p><strong>属性解释</strong><br><strong>noImplicitOverride</strong> 应用于 <code>subClass extends ParentClass</code> 场景下，当子类<strong>重写</strong>父类方法时，需要在重写的方法前添加<code>override</code>关键字，否则 typescript 就会抛出错误。</p>
-<p><strong>举个栗子</strong></p>
+<p><strong>栗子</strong></p>
 <ul>
 <li><p>noImplicitOverride: true <strong>抛出错误</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Album</span> &#123;</span><br><span class="line">  <span class="title function_">download</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// Default behavior</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SharedAlbum</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Album</span> &#123;</span><br><span class="line">  <span class="title function_">download</span>(<span class="params">x: number</span>) &#123; <span class="comment">// 抛出错误，重写的方法前必须添加 override 关键字</span></span><br><span class="line">    <span class="comment">// Override to get info from many sources</span></span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -275,6 +287,20 @@
 <li>重写方法的访问修饰符一定要大于被重写方法的访问修饰符（public&gt;protected&gt;private）</li>
 <li>被重写的方法不能为private，否则在其子类中只是新定义了一个方法，并没有对其进行重写.</li>
 </ol>
+<h2 id="noImplicitReturns"><a href="#noImplicitReturns" class="headerlink" title="noImplicitReturns"></a>noImplicitReturns</h2><p><strong>属性解释</strong><br>js 中对于没有返回值的代码块会默认返回undefined，这在一些场景中会不符合要求, 例如以下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">add</span> = (<span class="params">n</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> n === <span class="string">&#x27;number&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = <span class="title function_">add</span>(<span class="number">1</span>) + <span class="number">2</span>; <span class="comment">// ok. output 3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = <span class="title function_">add</span>(<span class="string">&#x27;1&#x27;</span>) + <span class="number">2</span>; <span class="comment">// error. NaN</span></span><br></pre></td></tr></table></figure>
+<p>typescript 提供了<code>noImplicitReturns</code>属性帮助检查函数中是否存在不明确返回值的代码块</p>
+<p><strong>栗子</strong></p>
+<ul>
+<li><p>noImplicitReturns: true <strong>抛出错误</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">x</span>) &#123;</span><br><span class="line">  <span class="comment">// Error: Not all code paths return a value.</span></span><br><span class="line">  <span class="keyword">if</span> (x) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// implicitly returns `undefined`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>noImplicitAny: false <strong>不抛出错误</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">x</span>) &#123;</span><br><span class="line">  <span class="comment">// ignore 忽略不明确返回值的情况</span></span><br><span class="line">  <span class="keyword">if</span> (x) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// implicitly returns `undefined`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当函数指定明确返回类型时，任意代码块返回值类型不符合要求都会抛出错误，即使 <code>noImplicitAny: false</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">x</span>) &#123;</span><br><span class="line">  <span class="comment">// Error: Function lacks ending return statement and return type does not include &#x27;undefined&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (x) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// implicitly returns `undefined`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 
             
         </section>
@@ -295,7 +321,7 @@
 
 		
 		
-			<a href="/blog/uncategorized/cl2g9xcbw0000k8cbgpdu2h66/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="">下一篇</a>
+			<a href="/blog/uncategorized/cl2gbf1fg0000sqcb7p786g50/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="">下一篇</a>
 		
 
         <div style="clear: both;"></div>
@@ -378,7 +404,7 @@
                 return out;
             }
             // 生成
-            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("https://guoshi.com/blog/Typescript/cl2g9xcce000ck8cbaf9fc2lu/")}).hide();
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("https://guoshi.com/blog/Typescript/cl2gbf1fv000csqcb7lhqc4bb/")}).hide();
             var canvas=qrcode.find('canvas').get(0);
             $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
         </script>
