@@ -1,0 +1,495 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no", user-scalable=no">
+  <title>tsconfig.json 详解壮硕的果实</title>
+  <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/23136421?s=400&u=a461aad2f020667674831f4a9f8c123359badfb7&v=4">
+  
+    
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="/css/atom-one-dark.css">
+    
+      <link rel="stylesheet" href="/css/jquery.fancybox.css">
+    
+      <link rel="stylesheet" href="/css/nprogress.min.css">
+    
+      <link rel="stylesheet" href="/css/valine.css">
+    
+      <link rel="stylesheet" href="/css/life.css">
+    
+  
+
+  
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  
+  
+  
+    <script src="/js/jquery-2.2.4.min.js"></script>
+  
+    <script src="https://cdn1.lncld.net/static/js/3.1.0/av-min.js"></script>
+  
+    <script src="/js/jquery.pjax.js"></script>
+  
+    <script src="/js/nprogress.min.js"></script>
+  
+    <script src="/js/tether.min.js"></script>
+  
+    <script src="/js/bootstrap.min.js"></script>
+  
+    <script src="/js/highlight.min.js"></script>
+  
+    <script src="/js/highlightjs-line-numbers.min.js"></script>
+  
+    <script src="/js/jquery.fancybox.js"></script>
+  
+    <script src="/js/jquery.qrcode.min.js"></script>
+  
+    <script src="/js/Valine.min.js"></script>
+  
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+<body>
+<script>AV.init({appId:'',appKey:''});</script>
+<script type="text/javascript">
+      var config = {
+            ClasS: 'Counter',
+            el:'.views',
+            elP: '.views-post'
+      }
+</script>
+<div class="container">
+    <div class="row blog-box-shadow">
+        <!--博客主栏开始-->
+        <div class="col-xl-9 col-lg-12 blog-main" id="pjax-box">
+            <header class="blog-header">
+                <a href="https://guoshi.com" class="blog-header-mobile-title">壮硕的果实</a>
+                <a href="javascript:;" class="blog-header-navbar-btn"><i class="fa fa-bars"></i></a>
+                <nav class="blog-header-navbar blog-header-fixed">
+                    <ul class="blog-navbar-links">
+                        
+                          <li class="blog-nav-item"><a href="/" class="transition">首页</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/about/" class="transition">关于</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/links/" class="transition">链接</a></li>
+                        
+                        <div class="blog-navbar-right">
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="text" class="blog-header-search" placeholder="search...">
+                                    <buttn type="submit" class="blog-header-search-btn"><i class="fa fa-search"></i></buttn>
+                                </div>
+                            </form>
+                        </div>
+                    </ul>
+                </nav>
+            </header>
+                
+<header class="blog-post-page-title">
+    <h4>tsconfig.json 详解</h4>
+    <time datetime="2022-04-26T14:58:30.606Z"><i class="fa fa-clock-o"></i>2022-04-26</time>
+    
+    
+    
+    
+	
+        <span><i class="fa fa-folder-o"></i>
+    		
+    	       <a href="/categories/Typescript/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">Typescript</a>
+    		
+        </span>
+	
+    
+</header>
+<div class="blog-main-post blog-post-page-box">
+    <article class="blog-post-block blog-post-page-content">
+        <section>
+            
+                <h1 id="tsconfig-属性详解"><a href="#tsconfig-属性详解" class="headerlink" title="tsconfig 属性详解"></a>tsconfig 属性详解</h1><table>
+    <thead>
+        <th>一级属性</th>
+        <th>分类</th>
+        <th>二级属性</th>
+        <th>类型</th>
+        <th>默认值</th>
+        <th>解释</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="3" style="text-align: center">extend</td>
+            <td></td>
+            <td></td>
+            <td>继承外部tsconfig</td>
+        </tr>
+        <tr>
+            <td rowspan="20" style="vertical-align: middle;">compilerOptions</td>
+            <td rowspan="6">类型检查(Type Checking)</td>
+            <td>allowUnreachableCode</td>
+            <td>boolean | undefined</td>
+            <td>undefined</td>
+            <td>代码中允许存在永远不会执行的代码</td>
+        </tr>
+         <tr>
+            <td>allowUnusedLabels</td>
+            <td>boolean | undefined</td>
+            <td>undefined</td>
+            <td>代码中允许存在不使用的标记语句</td>
+        </tr>
+        <tr>
+            <td>alwaysStrict</td>
+            <td>boolean</td>
+            <td>true</td>
+            <td>代码始终保持严格模式</td>
+        </tr>
+         <tr>
+            <td>exactOptionalPropertyTypes</td>
+            <td>boolean</td>
+            <td>true</td>
+            <td>严格按照可选属性类型列表定义属性值，不可赋值为undefined</td>
+        </tr>
+        <tr>
+            <td>noFallthroughCasesInSwitch</td>
+            <td>boolean</td>
+            <td>true</td>
+            <td>是否允许 switch 中存在**空（不包含 break 或者 return）** case</td>
+        </tr>
+        <tr>
+            <td>noImplicitAny</td>
+            <td>boolean</td>
+            <td>true</td>
+            <td>是否禁止属性类型是隐式any。true: 禁止; false: 忽略;</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="allowUnreachableCode"><a href="#allowUnreachableCode" class="headerlink" title="allowUnreachableCode"></a>allowUnreachableCode</h2><p><strong>什么是 unreachable code</strong></p>
+<p>Unreachable code 也可以被称为 <strong>dead code</strong>,是无法在任何上下文中执行的编程代码.</p>
+<p><strong>当设置为以下值时</strong></p>
+<ul>
+<li>undefined: 默认值，提供 warning 类型的建议</li>
+<li>true: 忽略不可执行的代码</li>
+<li>false: 抛出编译错误</li>
+</ul>
+<p><strong>举个栗子：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">hasUnreachableCode</span> = (<span class="params">a: number</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (a &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="string">&#x27;error&#x27;</span>;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;error&#x27;</span>, a); <span class="comment">// 永远不会执行的代码</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> a++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 永远不会执行的代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>其他</strong></p>
+<p>eslint 同样支持设置规则<code>&#39;no-unreachable&#39;: &quot;error&quot;</code>来避免程序中存在不可执行的代码。</p>
+<h2 id="allowUnusedLabels"><a href="#allowUnusedLabels" class="headerlink" title="allowUnusedLabels"></a>allowUnusedLabels</h2><p><strong>什么是 label</strong></p>
+<p>在 js 中， label 表示标记语句，可以和 <strong>break</strong> 和 <strong>continue</strong> 语句一起使用，使用方式就是在一条语句前面加个可以引用的标识符。</p>
+<p><strong>当设置为以下值时</strong></p>
+<ul>
+<li>undefined: 默认值，提供 warning 类型的建议</li>
+<li>true: 忽略没有用的标记语句</li>
+<li>false: 抛出编译错误</li>
+</ul>
+<p>标记语句现在很少使用了，因此这个类型设置大家估计都不是很熟悉，我们举个栗子：熟悉下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="attr">loop1</span>: <span class="comment">// loop1 这个标记语句是有用的，在 for 循环里用到了</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">if</span> (i === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">continue</span> loop1;</span><br><span class="line">  &#125;</span><br><span class="line">  str = str + i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str); <span class="comment">// 0234</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>下面这个是没有用到的标记语句</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">foo</span>: &#123; <span class="comment">// foo 没有用到</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;face&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;unuse&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;swap&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>其他</strong></p>
+<p>eslint 同样支持设置规则<code>&#39;no-unused-labels&#39;: &quot;error&quot;</code>来避免程序中存在不可执行的代码。</p>
+<h2 id="exactOptionalPropertyTypes"><a href="#exactOptionalPropertyTypes" class="headerlink" title="exactOptionalPropertyTypes"></a>exactOptionalPropertyTypes</h2><p><strong>属性解释</strong><br>在 <strong>type</strong> 或者 <strong>interface</strong> 中定义可选属性时(也就是 ?: 定义的属性)，当 <strong>exactOptionalPropertyTypes</strong> 为 <strong>true</strong> 时，可选属性不能赋值为 undefined。为 <strong>false</strong>时，则允许赋值为 undefined。</p>
+<p><strong>举个栗子</strong></p>
+<ul>
+<li><p>exactOptionalPropertyTypes: true</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">interface <span class="title class_">UserDefaults</span> &#123;</span><br><span class="line">    color?: <span class="string">&#x27;light&#x27;</span> | <span class="string">&#x27;dark&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">user</span>: <span class="title class_">UserDefaults</span> = &#123;</span><br><span class="line">    <span class="attr">color</span>: <span class="literal">undefined</span> <span class="comment">// Type &#x27;undefined&#x27; is not assignable to type &#x27;&quot;light&quot; | &quot;dark&quot;&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>exactOptionalPropertyTypes: false</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">interface <span class="title class_">UserDefaults</span> &#123;</span><br><span class="line">    color?: <span class="string">&#x27;light&#x27;</span> | <span class="string">&#x27;dark&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">user</span>: <span class="title class_">UserDefaults</span> = &#123;</span><br><span class="line">    <span class="attr">color</span>: <span class="literal">undefined</span> <span class="comment">// ok</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>其他</strong>  </p>
+<p><strong>exactOptionalPropertyTypes</strong> 不影响可选属性是否定义，也就是不定义 color 属性时是允许的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">interface <span class="title class_">UserDefaults</span> &#123;</span><br><span class="line">    color?: <span class="string">&#x27;light&#x27;</span> | <span class="string">&#x27;dark&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">user</span>: <span class="title class_">UserDefaults</span> = &#123;</span><br><span class="line">    <span class="comment">// 没有定义 color 也是 ok 的</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="noFallthroughCasesInSwitch"><a href="#noFallthroughCasesInSwitch" class="headerlink" title="noFallthroughCasesInSwitch"></a>noFallthroughCasesInSwitch</h2><p><strong>属性解释</strong><br>不允许 switch 表达式中存在 <code>fallthrough</code> case，即如果某个 case 内不存在 <code>break</code> 或 <code>return</code> 关键字，会抛出错误。<br>注意：只有当该 <code>case</code> 中存在代码逻辑但是无 <code>break</code>或<code>return</code> 时才会抛出错误。如果 <code>case</code> 内无逻辑代码则不会抛出错误。</p>
+<p><strong>举个栗子</strong></p>
+<ul>
+<li><p>noFallthroughCasesInSwitch: true <strong>抛出错误</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">demo</span> = (<span class="params">type: number</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">switch</span>(type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>: <span class="comment">// error：Fallthrough case in switch.(7029)</span></span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;it is 0&#x27;</span>);</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;it is 1&#x27;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>noFallthroughCasesInSwitch: true <strong>不抛出错误</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">demo</span> = (<span class="params">type: number</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">switch</span>(type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>: <span class="comment">// ok，空的 case 是允许的，不会当作错误</span></span><br><span class="line">            <span class="comment">// console.log(&#x27;it is 0&#x27;);</span></span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;it is 1&#x27;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>noFallthroughCasesInSwitch: false</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">demo</span> = (<span class="params">type: number</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">switch</span>(type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>: <span class="comment">// ignore</span></span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;it is 0&#x27;</span>);</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;it is 1&#x27;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="noImplicitAny"><a href="#noImplicitAny" class="headerlink" title="noImplicitAny"></a>noImplicitAny</h2><p><strong>属性解释</strong><br>typescript 会提供一个兜底类型 <code>any</code> 给那些<strong>没有声明类型且无法推断出类型的属性</strong>，<code>noImplicitAny</code> 的作用就是提供一个开关给用户决定是否禁止提供隐式any类型给上述类型。</p>
+<p><strong>举个栗子</strong></p>
+<ul>
+<li><p>noImplicitAny: true <strong>抛出错误</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">s</span>) &#123;</span><br><span class="line"><span class="comment">//Parameter &#x27;s&#x27; implicitly has an &#x27;any&#x27; type.</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(s.<span class="title function_">subtr</span>(<span class="number">3</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>noImplicitAny: false <strong>不抛出错误</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">s</span>) &#123;</span><br><span class="line"><span class="comment">//will ignore</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(s.<span class="title function_">subtr</span>(<span class="number">3</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="noImplicitOverride（禁止不明确的重写）"><a href="#noImplicitOverride（禁止不明确的重写）" class="headerlink" title="noImplicitOverride（禁止不明确的重写）"></a>noImplicitOverride（禁止不明确的重写）</h2><p><strong>属性解释</strong><br><strong>noImplicitOverride</strong> 应用于 <code>subClass extends ParentClass</code> 场景下，当子类<strong>重写</strong>父类方法时，需要在重写的方法前添加<code>override</code>关键字，否则 typescript 就会抛出错误。</p>
+<p><strong>举个栗子</strong></p>
+<ul>
+<li><p>noImplicitOverride: true <strong>抛出错误</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Album</span> &#123;</span><br><span class="line">  <span class="title function_">download</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// Default behavior</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SharedAlbum</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Album</span> &#123;</span><br><span class="line">  <span class="title function_">download</span>(<span class="params">x: number</span>) &#123; <span class="comment">// 抛出错误，重写的方法前必须添加 override 关键字</span></span><br><span class="line">    <span class="comment">// Override to get info from many sources</span></span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>noImplicitAny: false <strong>不抛出错误</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Album</span> &#123;</span><br><span class="line">  <span class="title function_">download</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// Default behavior</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SharedAlbum</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Album</span> &#123;</span><br><span class="line">  <span class="title function_">download</span>(<span class="params"></span>) &#123; <span class="comment">// 忽略错误，正常执行</span></span><br><span class="line">    <span class="comment">// Override to get info from many sources</span></span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>看以下场景</strong>  </p>
+<ul>
+<li><p>重写的方法有额外参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Album</span> &#123;</span><br><span class="line">  <span class="title function_">download</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// Default behavior</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SharedAlbum</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Album</span> &#123;</span><br><span class="line">  <span class="title function_">download</span>(<span class="params">x: number</span>) &#123; <span class="comment">// 抛出错误：download 方法和 Album 的方法不匹配，即使 noImplicitOverride 设置为false也不能重写</span></span><br><span class="line">    <span class="comment">// Override to get info from many sources</span></span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重写的方法可见性(member visibility)低于父类方法可见性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Album</span> &#123;</span><br><span class="line">  <span class="title function_">download</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// Default behavior</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SharedAlbum</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Album</span> &#123;</span><br><span class="line">  private <span class="title function_">download</span>(<span class="params">x: number</span>) &#123; <span class="comment">// 抛出错误：download 方法和 Album 的方法不匹配，即使 noImplicitOverride 设置为false也不能重写</span></span><br><span class="line">    <span class="comment">// Override to get info from many sources</span></span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>覆写的方法前加 static 关键字会被当作子类自己定义的方法，和 override 无关，也就不会抛出错误</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Album</span> &#123;</span><br><span class="line">  <span class="title function_">download</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// Default behavior</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SharedAlbum</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Album</span> &#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="title function_">download</span>(<span class="params">x: number</span>) &#123; <span class="comment">// 不抛出错误</span></span><br><span class="line">    <span class="comment">// Override to get info from many sources</span></span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>关于这个错误，就涉及到<strong>重写</strong>和<strong>重载</strong>的概念了。下面简单介绍下两者的特点和区别，具体概念可以<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-override-overload.html">看这里</a><br><strong>typescript override的规则如下</strong></p>
+<ol>
+<li>重写方法的参数列表必须完全与被重写的方法的相同,否则不能称其为重写而是重载.</li>
+<li>重写方法的访问修饰符一定要大于被重写方法的访问修饰符（public&gt;protected&gt;private）</li>
+<li>被重写的方法不能为private，否则在其子类中只是新定义了一个方法，并没有对其进行重写.</li>
+</ol>
+
+            
+        </section>
+        <footer class="blog-post-page-tags">
+        
+			
+				
+			<a href="/tags/typescript/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">typescript</a>
+				
+			
+		
+        </footer>
+    </article>
+    <article class="blog-post-page-readmore">
+    	
+    	
+		
+
+		
+		
+			<a href="/blog/uncategorized/cl2g9xcbw0000k8cbgpdu2h66/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="">下一篇</a>
+		
+
+        <div style="clear: both;"></div>
+    </article>
+
+    <article class="blog-post-block blog-post-page-content">
+            <div class="row">
+            
+            </div>
+       
+
+        <div class="modal fade" id="post-donate-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">打赏本文</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-donate-content">
+                            <div class="col-md-4">
+                                <p>支付宝</p>
+                                <img class="post-donate-content-img no-lightbox" src=""/>
+                            </div>
+                            <div class="col-md-4">
+                                <p>微信</p>
+                                <img class="post-donate-content-img no-lightbox" src=""/>
+                            </div>
+                            <div class="col-md-4">
+                                <p>财付通</p>
+                                <img class="post-donate-content-img no-lightbox" src=""/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="post-qrcode-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">文章二维码</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-qrcode-content">
+                            <span class="post-qrcode-content-canvas"></span>
+                            <img class="post-qrcode-content-img no-lightbox" src=""/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // post QRcode
+            // 中文转码
+            function toUtf8(str) {
+                var out, i, len, c;
+                out = "";
+                len = str.length;
+                for (i = 0; i < len; i++) {
+                    c = str.charCodeAt(i);
+                    if ((c >= 0x0001) && (c <= 0x007F)) {
+                        out += str.charAt(i);
+                    } else if (c > 0x07FF) {
+                        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                        out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    } else {
+                        out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    }
+                }
+                return out;
+            }
+            // 生成
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("https://guoshi.com/blog/Typescript/cl2g9xcce000ck8cbaf9fc2lu/")}).hide();
+            var canvas=qrcode.find('canvas').get(0);
+            $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
+        </script>
+
+        
+    </article>
+    
+</div>
+
+                
+            <footer class="blog-footer">
+                <p class="blog-footer-left">Copyright ©  2022 <a href="https://guoshi.com">壮硕的果实</a></p>
+                <p class="blog-footer-right">Powered by <a href="https://hexo.io" target="_blank">Hexo</a>,Theme <a href="https://note.isweic.com/themes-life/" target="_blank">Life</a></p>
+            </footer>
+        </div><!--博客主栏结束-->
+        <!--博客侧边栏开始-->
+        <div class="col-xl-3 blog-sidebar">
+            <div class="blog-sidebar-title">
+                <a href="">壮硕的果实</a>
+            </div>
+            <div class="blog-sidebar-logo">
+                <img src="https://avatars.githubusercontent.com/u/23136421?s=400&u=a461aad2f020667674831f4a9f8c123359badfb7&v=4">
+            </div>
+            <div class="blog-sidebar-count blog-sidebar-padding">
+                <div class="blog-sidebar-count-left">
+                    <p class="blog-sidebar-count-p">4</p>
+                    <span class="blog-sidebar-count-span">文章</span>
+                </div>
+                <div class="blog-sidebar-count-right">
+                    <p class="blog-sidebar-count-p">3</p>
+                    <span class="blog-sidebar-count-span">标签</span>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div class="blog-sidebar-icon blog-sidebar-padding">
+                <ul>
+                    <li><a href="https://github.com/yolilufei" class="icon-github" target="_blank" data-toggle="tooltip" data-placement="top" title="Github"><i class="fa fa-github"></i></a></li>
+                </ul>
+            </div>
+            <div class="blog-sidebar-categories">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-folder-open"></i>&nbsp;文章分类</h4>
+                <ul class="list-group blog-sidebar-padding">
+                  
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Linux/">Linux</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/css/">css</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Typescript/">Typescript</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                  
+                </ul>
+            </div>
+            <div class="blog-sidebar-tags">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-tag"></i>&nbsp;标签云</h4>
+                <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
+                  
+                    
+                      <li><a href="/tags/linux/" class="tag-could" data-toggle="tooltip" data-placement="top" title="linux">linux</a></li>
+                    
+                      <li><a href="/tags/css/" class="tag-could" data-toggle="tooltip" data-placement="top" title="css">css</a></li>
+                    
+                      <li><a href="/tags/typescript/" class="tag-could" data-toggle="tooltip" data-placement="top" title="typescript">typescript</a></li>
+                    
+                  
+                </ul>
+            </div>
+            <script>
+              // 博客侧栏标签云随机色
+              var tag_cloud = $('.tag-could');
+              tag_cloud.each(function () {
+                  var Cnum = 9;
+                  var Crand = parseInt(Math.random() * Cnum);
+                  $(this).addClass("tag-could" + Crand);
+              })
+            </script>
+            <!--返回顶部按钮-->
+            <div class="retop">
+                <i class="fa fa-angle-up"></i>
+            </div>
+        </div><!--博客侧边栏结束-->
+    </div>
+</div>
+<script src="/js/LeanStatistics.min.js"></script>
+<script src="/js/Life.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    otherF();
+    LeanStatistics();
+    $(document).pjax('a', '#pjax-box', {fragment:'#pjax-box', timeout:8000}).on('pjax:complete', function() {
+      $('pre code').each(function(i, block){
+        hljs.highlightBlock(block);
+      })
+      $('code.hljs').each(function(i, block) {
+        hljs.lineNumbersBlock(block);
+      });
+      LeanStatistics();
+    }).on('pjax:start', function() { NProgress.start(); }).on('pjax:end',   function() {
+      NProgress.done();
+      otherF();
+    });
+</script>
+</body>
+</html>

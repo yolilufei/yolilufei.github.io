@@ -6,6 +6,8 @@
 
 
 
+  
+
 
 
 
@@ -20,7 +22,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no", user-scalable=no">
-  <title>linux 指令—xargs壮硕的果实</title>
+  <title>Category: Typescript壮硕的果实</title>
   <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/23136421?s=400&u=a461aad2f020667674831f4a9f8c123359badfb7&v=4">
   
     
@@ -108,143 +110,59 @@
                 </nav>
             </header>
                 
-<header class="blog-post-page-title">
-    <h4>linux 指令—xargs</h4>
-    <time datetime="2022-04-01T09:23:56.682Z"><i class="fa fa-clock-o"></i>2022-04-01</time>
-    
-    
-    
-    
-	
-        <span><i class="fa fa-folder-o"></i>
-    		
-    	       <a href="/categories/Linux/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">Linux</a>
-    		
-        </span>
-	
-    
+<header class="blog-post-page-title blog-search-page-title">
+  <h4>分类<a href="">Typescript</a>下的文章</h4>
 </header>
 <div class="blog-main-post blog-post-page-box">
-    <article class="blog-post-block blog-post-page-content">
-        <section>
-            
-                <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>xargs（英文全拼： eXtended ARGuments）是给命令传递参数的一个过滤器，也是组合多个命令的一个工具。<br>xargs 功能强大，用法很多，接下来通过不同的案例展示 xargs 的用法。</p>
-<h3 id="案例-将管道输出转换为命令行参数"><a href="#案例-将管道输出转换为命令行参数" class="headerlink" title="案例-将管道输出转换为命令行参数"></a>案例-将管道输出转换为命令行参数</h3><p><code>find . -type f -name &#39;*.md&#39; | ls -l</code></p>
-<h3 id="parctise"><a href="#parctise" class="headerlink" title="parctise"></a>parctise</h3><p>将当前目录下所有的 jpg 格式文件移动到 &#x2F;data&#x2F;images 下</p>
-<p><code>ls *.jpg | xargs -n1 -I &#123;&#125; mv &#123;&#125; /data/images</code></p>
-<p>统计一个源代码目录中所有 tsx 文件的行数</p>
-<p><code>find /source -type f -name &#39;*.tsx&#39; | xargs -n1 -I &#123;&#125; wc -l</code></p>
-
-            
-        </section>
-        <footer class="blog-post-page-tags">
+  
+    <article class="blog-post-block">
         
-			
-				
-			<a href="/tags/linux/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">linux</a>
-				
-			
-		
-        </footer>
-    </article>
-    <article class="blog-post-page-readmore">
-    	
-    	
-		
-			<a href="/blog/css/cl1wbo7np0007fecbh4yogt81/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="伪类和伪元素详解">上一篇</a>
-		
-
-		
-		
-
-        <div style="clear: both;"></div>
-    </article>
-
-    <article class="blog-post-block blog-post-page-content">
-            <div class="row">
-            
-            </div>
-       
-
-        <div class="modal fade" id="post-donate-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">打赏本文</h5>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row post-donate-content">
-                            <div class="col-md-4">
-                                <p>支付宝</p>
-                                <img class="post-donate-content-img no-lightbox" src=""/>
-                            </div>
-                            <div class="col-md-4">
-                                <p>微信</p>
-                                <img class="post-donate-content-img no-lightbox" src=""/>
-                            </div>
-                            <div class="col-md-4">
-                                <p>财付通</p>
-                                <img class="post-donate-content-img no-lightbox" src=""/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="post-qrcode-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">文章二维码</h5>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row post-qrcode-content">
-                            <span class="post-qrcode-content-canvas"></span>
-                            <img class="post-qrcode-content-img no-lightbox" src=""/>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <script>
-            // post QRcode
-            // 中文转码
-            function toUtf8(str) {
-                var out, i, len, c;
-                out = "";
-                len = str.length;
-                for (i = 0; i < len; i++) {
-                    c = str.charCodeAt(i);
-                    if ((c >= 0x0001) && (c <= 0x007F)) {
-                        out += str.charAt(i);
-                    } else if (c > 0x07FF) {
-                        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
-                        out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
-                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
-                    } else {
-                        out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
-                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
-                    }
-                }
-                return out;
-            }
-            // 生成
-            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("https://guoshi.com/blog/Linux/cl1wbo7nk0002fecbb4dsbzg2/")}).hide();
-            var canvas=qrcode.find('canvas').get(0);
-            $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
-        </script>
-
-        
-    </article>
+        <div class="blog-post-block-padding">
+          
+            <a href="/blog/Typescript/cl2g9xcce000ck8cbaf9fc2lu/">tsconfig.json 详解</a>
+          
+            <section>
+              
+                
+                tsconfig 属性详解
     
+        一级属性
+        分类
+        二级属性
+        类型
+        默认值
+        解释
+    
+    
+        
+            extend
+  
+                ...
+              
+            </section>
+            <footer>
+                <time datetime="2022-04-26T14:58:30.606Z><i class="fa fa-clock-o"></i>2022-04-26</time>
+                
+                
+                 
+                
+                  <span><i class="fa fa-folder-o"></i>
+                    
+                      <a href="/categories/Typescript/" itemprop="url" rel="index">
+                        Typescript
+                      </a>
+                    
+                  </span>
+                
+            </footer>
+        </div>
+    </article>
+  
+    
+    <nav id="pagination" class="blog-pagination">
+            <span class="page-number current">1</span>
+    </nav>
+
 </div>
 
                 
@@ -263,11 +181,11 @@
             </div>
             <div class="blog-sidebar-count blog-sidebar-padding">
                 <div class="blog-sidebar-count-left">
-                    <p class="blog-sidebar-count-p">3</p>
+                    <p class="blog-sidebar-count-p">4</p>
                     <span class="blog-sidebar-count-span">文章</span>
                 </div>
                 <div class="blog-sidebar-count-right">
-                    <p class="blog-sidebar-count-p">2</p>
+                    <p class="blog-sidebar-count-p">3</p>
                     <span class="blog-sidebar-count-span">标签</span>
                 </div>
                 <div style="clear: both;"></div>
@@ -292,6 +210,11 @@
                           <span class="badge badge-default badge-pill">1</span>
                       </li>
                     
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Typescript/">Typescript</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
                   
                 </ul>
             </div>
@@ -303,6 +226,8 @@
                       <li><a href="/tags/linux/" class="tag-could" data-toggle="tooltip" data-placement="top" title="linux">linux</a></li>
                     
                       <li><a href="/tags/css/" class="tag-could" data-toggle="tooltip" data-placement="top" title="css">css</a></li>
+                    
+                      <li><a href="/tags/typescript/" class="tag-could" data-toggle="tooltip" data-placement="top" title="typescript">typescript</a></li>
                     
                   
                 </ul>
